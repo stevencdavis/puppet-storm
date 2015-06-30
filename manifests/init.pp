@@ -39,7 +39,7 @@ class storm (
   $version = $storm::params::storm_version,
   $homedir = $storm::params::storm_home,
 
-  $storm_conf        = $storm::param::storm_conf,
+  $storm_conf        = $storm::params::storm_conf,
   $storm_conf_file   = $storm::params::storm_conf_file,
 
   $local_dir = $storm::params::storm_local_dir,
