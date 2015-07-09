@@ -11,9 +11,9 @@ class storm::params {
   $storm_home        = hiera('storm_home', '/opt/storm')
   $storm_lib         = hiera('storm_lib', '/opt/storm/lib')
   $storm_jar         = hiera('storm_jar', '/opt/storm/storm-*.jar')
-  $storm_conf        = hiera('storm_conf', '/etc/storm')
+  $storm_conf_dir    = hiera('storm_conf_dir', '/etc/storm')
   $storm_conf_file   = hiera('storm_conf_file', 'storm.yaml')
-  $storm_classpath   = hiera('storm_classpath', ['$STORM_LIB/*.jar', '$STORM_JAR', '$STORM_CONF'])
+  $storm_classpath   = hiera('storm_classpath', ['$STORM_LIB/*.jar', '$STORM_JAR', '$STORM_CONF_DIR'])
   $storm_options     = hiera_array('storm_options', [''])
 
   #_ ZOOKEEPER _#

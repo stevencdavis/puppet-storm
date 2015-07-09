@@ -13,16 +13,16 @@
 class storm::config inherits storm {
   require storm::install
 
-  file { $storm_conf:
+  file { $storm_conf_dir:
     ensure  => directory,
     owner   => 'root',
     group   => 'root',
     mode    => '0644'
   }
 
-  file { "${storm_conf}/${storm_conf_file}":
+  file { "${storm_conf_dir}/${storm_conf_file}":
     # require => Package['storm'],
-    require => File[$storm_conf],
+    require => File[$storm_conf_dir],
     ensure  => present,
     content => template('storm/storm.yaml.erb'),
     owner   => 'root',
@@ -39,9 +39,9 @@ class storm::config inherits storm {
     mode    => '0644'
   }
 
-  file { "${storm_conf}/storm-logback.xml":
+  file { "${storm_conf_dir}/storm-logback.xml":
     # require => Package['storm'],
-    require => File[$storm_conf],
+    require => File[$storm_conf_dir],
     ensure  => present,
     purge   => false,
     content => template('storm/storm-logback.xml.erb'),

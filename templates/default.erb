@@ -5,7 +5,7 @@ STORM_USER="<%= scope.lookupvar('storm::params::storm_user') %>"
 STORM_HOME="<%= scope.lookupvar('storm::params::storm_home') %>"
 STORM_LIB="<%= scope.lookupvar('storm::params::storm_lib') %>"
 STORM_JAR="<%= scope.lookupvar('storm::params::storm_jar') %>"
-STORM_CONF="<%= scope.lookupvar('storm::params::storm_conf') %>"
+STORM_CONF_DIR="<%= scope.lookupvar('storm::params::storm_conf_dir') %>"
 STORM_CLASSPATH="<% scope.lookupvar('storm::params::storm_classpath').each do |p| -%>$(echo <%= p %> | tr ' ' ':'):"<% end -%>
 
 
