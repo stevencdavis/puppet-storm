@@ -17,7 +17,7 @@ script
   # Set STORM Options
   # NOTE: The log4j2 dir specification is a bit of a hack because storm v0.10.0 hard-codes logviewer log config dirs.
   #       The 'log4j.configurationFile' param shouldn't be necessary in future versions
-  STORM_CMD="-classpath $STORM_CLASSPATH -Xms$STORM_<%= @name.upcase %>_JVM_MEMORY -Xmx$STORM_<%= @name.upcase %>_JVM_MEMORY -Djava.library.path=\"$JAVA_LIBRARY_PATH\" -Dstorm.options=\"$STORM_OPTIONS\" -Dstorm.home=$STORM_HOME -Dstorm.log.dir=<%= @storm_logdir %> -Dlog4j.configurationFile=/log4j2/cluster.xml $SUPERVISOR_JVM_OPTS <%= @classname %>"
+  STORM_CMD="-classpath $STORM_CLASSPATH -Xms$STORM_<%= @name.upcase %>_JVM_MEMORY -Xmx$STORM_<%= @name.upcase %>_JVM_MEMORY -Djava.library.path=\"$JAVA_LIBRARY_PATH\" -Dstorm.options=\"$STORM_OPTIONS\" -Dstorm.home=$STORM_HOME -Dstorm.log.dir=<%= @storm_logdir %> -Dlog4j.configurationFile=log4j2/cluster.xml $SUPERVISOR_JVM_OPTS <%= @classname %>"
 
   if [ "x$ENABLE" = "xyes" ]; then
     exec start-stop-daemon --start --pidfile ${STORM_PID} --make-pidfile --chuid ${STORM_USER} --chdir ${STORM_HOME} --exec /usr/bin/java -- ${STORM_CMD}
