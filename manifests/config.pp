@@ -39,12 +39,12 @@ class storm::config inherits storm {
     mode    => '0644'
   }
 
-  file { "${storm_conf_dir}/storm-logback.xml":
+  file { "${storm_home}/log4j2/worker.xml":
     # require => Package['storm'],
-    require => File[$storm_conf_dir],
+    require => File[$storm_home],
     ensure  => present,
     purge   => false,
-    content => template('storm/storm-logback.xml.erb'),
+    content => template('storm/worker.xml.erb'),
     owner   => 'root',
     group   => 'root',
     mode    => '0644'
